@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { only } from 'node:test';
 
 test.describe("week3", () => {
 
@@ -118,4 +119,5 @@ test("Locked out user can not log in", async ({ page }) => {
   ).toBeVisible();
 });
 
+test only
 });
