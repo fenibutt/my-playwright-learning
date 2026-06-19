@@ -118,6 +118,4 @@ test("Locked out user can not log in", async ({ page }) => {
     page.getByText("Epic sadface: Sorry, this user has been locked out.")
   ).toBeVisible();
 });
-
-test only
 });
