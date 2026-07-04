@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { only } from 'node:test';
 
 test.describe("week3", () => {
 
@@ -107,6 +108,14 @@ test.describe("week3", () => {
         page.locator('[data-test="shopping-cart-badge"]'),
         "Cart badge should show 1 after adding a product"
       ).toHaveText("1");
+});
 
- });
+test("Locked out user can not log in", async ({ page }) => {
+  await page.locator('[data-test="username"]').fill('locked_out_user');
+  await page.locator('[data-test="password"]').fill('secret_sauce');
+  await page.locator('[data-test="login-button"]').click();
+  await expect(
+    page.getByText("Epic sadface: Sorry, this user has been locked out.")
+  ).toBeVisible();
+});
 });
