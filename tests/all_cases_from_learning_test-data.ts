@@ -16,6 +16,12 @@ const headphones: Product = {
   inStock: false,
 };
 
+const headphones2: Product = {
+  name: "Headphones",
+  price: 49.99,
+  inStock: false,
+};
+
 function formatPrice(price: number): string {
   return `$${price}`;
 }
